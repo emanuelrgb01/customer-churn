@@ -5,12 +5,14 @@ import sys
 
 TARGET_COLUMN_NAME = "Churn"
 TEST_DATASET_PATH = "apartments_for_rent_final_test.csv"
+MODEL_PATH = "model.joblib"
 
 MOCK_PATH = "data/lab2_2025_dataset.csv"
+MOCK_MODEL_PATH = "src/model.joblib"
 
 if __name__ == "__main__":
     try:
-        loaded_model = joblib.load("src/model.joblib")
+        loaded_model = joblib.load(MODEL_PATH)
         df = pd.read_csv(TEST_DATASET_PATH).dropna()
 
     except FileNotFoundError as e:
