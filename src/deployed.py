@@ -1,6 +1,6 @@
 import joblib
 import pandas as pd
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score, recall_score, precision_score, cohen_kappa_score, confusion_matrix, f1_score
 import sys
 import os
 
@@ -41,4 +41,15 @@ if __name__ == "__main__":
     y_pred = loaded_model.predict(X)
 
     accuracy = accuracy_score(y, y_pred)
+    recall = recall_score(y, y_pred)
+    precision = precision_score(y, y_pred)
+    kappa = cohen_kappa_score(y, y_pred)
+    f1 = f1_score(y, y_pred)
+    conf_matrix = confusion_matrix(y, y_pred)
+
     print(f"Acurácia: {accuracy}")
+    print(f"Recall: {recall}")
+    print(f"Precisão: {precision}")
+    print(f"Cohen's Kappa: {kappa}")
+    print(f"F1 Score: {f1}")
+    print(f"Matriz de Confusão:\n{conf_matrix}")
